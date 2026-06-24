@@ -1,24 +1,305 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rQ7-gM-p7A">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Navigation Controller-->
+        <scene sceneID="nav-scn-id">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                <navigationController id="rQ7-gM-p7A" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="nav-ba-rrr">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Lgn-VC-id1" kind="relationship" relationship="rootViewController" id="nav-seg-root"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nav-pl-hld" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-600" y="100"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="log-scn-id">
+            <objects>
+                <viewController storyboardIdentifier="LoginVC" id="Lgn-VC-id1" customClass="LoginViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="log-vi-eww">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo" textAlignment="natural" minimumFontSize="17" id="cor-re-oId">
+                                <rect key="frame" x="20" y="200" width="335" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" id="cla-ve-oId">
+                                <rect key="frame" x="20" y="260" width="335" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="ing-re-sId">
+                                <rect key="frame" x="20" y="330" width="335" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Ingresar"/>
+                                <connections>
+                                    <action selector="btnIngresarTapped:" destination="Lgn-VC-id1" eventType="touchUpInside" id="act-io-n1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="reg-is-tId">
+                                <rect key="frame" x="20" y="390" width="335" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Crear Cuenta"/>
+                                <connections>
+                                    <segue destination="Reg-VC-id2" kind="show" identifier="segueLoginToRegistro" id="seg-lo-reg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="log-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Iniciar Sesión" id="log-nv-itm"/>
+                    <connections>
+                        <outlet property="txtCorreo" destination="cor-re-oId" id="con-ne-ct1"/>
+                        <outlet property="txtClave" destination="cla-ve-oId" id="con-ne-ct2"/>
+                        <outlet property="btnIngresar" destination="ing-re-sId" id="con-ne-ct3"/>
+                        <outlet property="btnRegistrar" destination="reg-is-tId" id="con-ne-ct4"/>
+                        <segue destination="Men-VC-id3" kind="show" identifier="segueLoginToMenu" id="seg-lo-men"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="log-pl-hld" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-100" y="100"/>
+        </scene>
+        <!--Registro View Controller-->
+        <scene sceneID="reg-scn-id">
+            <objects>
+                <viewController storyboardIdentifier="RegistroVC" id="Reg-VC-id2" customClass="RegistroViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="reg-vi-eww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nombres Completos" textAlignment="natural" minimumFontSize="17" id="reg-nom-tf">
+                                <rect key="frame" x="20" y="200" width="335" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Correo Electrónico" textAlignment="natural" minimumFontSize="17" id="reg-cor-tf">
+                                <rect key="frame" x="20" y="260" width="335" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Contraseña" textAlignment="natural" minimumFontSize="17" id="reg-cla-tf">
+                                <rect key="frame" x="20" y="320" width="335" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="reg-btn-rg">
+                                <rect key="frame" x="20" y="390" width="335" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Registrarse"/>
+                                <connections>
+                                    <action selector="btnRegistrarTapped:" destination="Reg-VC-id2" eventType="touchUpInside" id="act-reg-tap"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="reg-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Registro" id="reg-nv-itm"/>
+                    <connections>
+                        <outlet property="txtNombres" destination="reg-nom-tf" id="con-reg-nom"/>
+                        <outlet property="txtCorreo" destination="reg-cor-tf" id="con-reg-cor"/>
+                        <outlet property="txtClave" destination="reg-cla-tf" id="con-reg-cla"/>
+                        <outlet property="btnRegistrar" destination="reg-btn-rg" id="con-reg-btn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="reg-pl-hld" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-100" y="800"/>
+        </scene>
+        <!--Menu View Controller-->
+        <scene sceneID="men-scn-id">
+            <objects>
+                <viewController storyboardIdentifier="MenuVC" id="Men-VC-id3" customClass="MenuViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="men-vi-eww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="tbl-men-uu">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="men-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Menú Principal" id="men-nv-itm"/>
+                    <connections>
+                        <outlet property="tableView" destination="tbl-men-uu" id="con-tbl-men"/>
+                        <segue destination="Srv-Li-id4" kind="show" identifier="segueMenuToServicios" id="seg-me-ser"/>
+                        <segue destination="Cit-Li-id6" kind="show" identifier="segueMenuToCitas" id="seg-me-cit"/>
+                        <segue destination="Prf-VC-id8" kind="show" identifier="segueMenuToPerfil" id="seg-me-per"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="men-pl-hld" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="400" y="100"/>
+        </scene>
+        <!--Servicio List View Controller-->
+        <scene sceneID="srv-li-scn">
+            <objects>
+                <viewController storyboardIdentifier="ServicioListVC" id="Srv-Li-id4" customClass="ServicioListViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ser-vi-eww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="tbl-srv-li">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="ser-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Catálogo de Servicios" id="ser-nv-itm"/>
+                    <connections>
+                        <outlet property="tableView" destination="tbl-srv-li" id="con-tbl-srv"/>
+                        <segue destination="Srv-De-id5" kind="show" identifier="segueServicioToDetail" id="seg-se-det"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="srv-li-pl" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="-300"/>
+        </scene>
+        <!--Servicio Detail View Controller-->
+        <scene sceneID="srv-de-scn">
+            <objects>
+                <viewController storyboardIdentifier="ServicioDetailVC" id="Srv-De-id5" customClass="ServicioDetailViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sed-vi-eww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sed-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Detalle de Servicio" id="sed-nv-itm"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="srv-de-pl" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1400" y="-300"/>
+        </scene>
+        <!--Cita List View Controller-->
+        <scene sceneID="cit-li-scn">
+            <objects>
+                <viewController storyboardIdentifier="CitaListVC" id="Cit-Li-id6" customClass="CitaListViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cit-vi-eww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="tbl-cit-li">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cit-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mis Citas" id="cit-nv-itm"/>
+                    <connections>
+                        <outlet property="tableView" destination="tbl-cit-li" id="con-tbl-cit"/>
+                        <segue destination="Cit-Cr-id7" kind="show" identifier="segueCitaToCreate" id="seg-ci-cre"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cit-li-pl" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="200"/>
+        </scene>
+        <!--Cita Create View Controller-->
+        <scene sceneID="cit-cr-scn">
+            <objects>
+                <viewController storyboardIdentifier="CitaCreateVC" id="Cit-Cr-id7" customClass="CitaCreateViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cic-vi-eww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Escriba el nombre del servicio" textAlignment="natural" minimumFontSize="17" id="cit-srv-tf">
+                                <rect key="frame" x="20" y="150" width="335" height="34"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" id="cit-dt-pk">
+                                <rect key="frame" x="20" y="210" width="335" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </datePicker>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="cit-btn-ag">
+                                <rect key="frame" x="20" y="400" width="335" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="16"/>
+                                <state key="normal" title="Agendar Cita"/>
+                                <connections>
+                                    <action selector="btnAgendarTapped:" destination="Cit-Cr-id7" eventType="touchUpInside" id="act-cit-tap"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cic-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Agendar Cita" id="cic-nv-itm"/>
+                    <connections>
+                        <outlet property="txtServicio" destination="cit-srv-tf" id="con-cit-srv"/>
+                        <outlet property="datePicker" destination="cit-dt-pk" id="con-cit-dt"/>
+                        <outlet property="btnAgendar" destination="cit-btn-ag" id="con-cit-btn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cit-cr-pl" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1400" y="200"/>
+        </scene>
+        <!--Perfil View Controller-->
+        <scene sceneID="prf-scn-id">
+            <objects>
+                <viewController storyboardIdentifier="PerfilVC" id="Prf-VC-id8" customClass="PerfilViewController" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="per-vi-eww">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" id="prf-btn-cs">
+                                <rect key="frame" x="20" y="500" width="335" height="50"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" weight="bold" pointSize="16"/>
+                                <state key="normal" title="Cerrar Sesión"/>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="per-sf-are"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Mi Perfil" id="per-nv-itm"/>
+                    <connections>
+                        <outlet property="btnCerrarSesion" destination="prf-btn-cs" id="con-prf-btn"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="prf-pl-hld" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="900" y="700"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
